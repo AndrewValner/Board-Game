@@ -1,0 +1,377 @@
+<div class="main">
+
+<!-- LOGO SECTION -->
+ <div class="logo section">
+     
+  <label>Class</label>
+  <select name="attr_class">
+  <option value="0" selected="selected">Choose a Class</option>
+  <option value="1">Knight</option>
+  <option value="2">Wizard</option>
+  <option value="3">Berserker</option>
+  <option value="4">Warrior</option>
+  <option value="5">Archer</option>
+  <option value="6">Hunstman</option>
+  <option value="7">Rogue</option>
+  </select> 
+  
+  <label>Race</label>
+  <select name="attr_race">
+  <option value="0" selected="selected">Choose a Race</option>
+  <option value="1">Human</option>
+  <option value="2">Elf</option>
+  <option value="3">Dwarf</option>
+  <option value="4">Gnome</option>
+  <option value="5">Orc</option>
+  <option value="6">Giant</option>
+  <option value="7">Darkling</option>
+  <option value="8">Draconii</option>
+  </select>
+  </div>
+
+<!-- NAME SECTION -->
+  <div class="name section">
+    <div class="section-small flex-center">
+      <label>Name: </label>
+      <input name="attr_character_name" type="text">
+    </div>
+    <div class="section-small flex-center">
+      <label>Race/Class: </label>
+      <input name="attr_order" type="text">
+    </div>
+  </div>
+  
+
+
+<!-- MAIN STAT SECTION -->
+
+  <div class="stats section">
+
+    <div>
+      <button name="roll_init" type="roll" value="#Turn-Order"><span>Turn</span></button>
+     <!-- <button name="roll_init" type="roll" value="&{template:test} {{rollname= Strike}} {{attack= [[2d6]]}} {{damage= [[0]] [[4]] [[7]] [[8]]+1p [[10]]+2p}}{{dmgtype1= [[0]]}}{{dmgtype2= [[4]]}}{{dmgtype3= [[7]]}}{{dmgtype4= [[8]]+1p}}{{dmgtype5= [[10]]+2p}}"><span>Turn!</span></button> -->
+    </div>
+
+    <div class="stat-block flex-center">
+      <label>HEALTH</label>
+      <input name="attr_HP" type="number" value="">
+      <input name="attr_HP_max" type="number" value="">
+    </div>
+
+    <div class="stat-block flex-center">
+      <label>STRENGTH</label>
+      <input name="attr_STR" type="number" value="">
+      <input name="attr_STR_bonus" type="number" value="">
+    </div>
+
+    <div class="stat-block flex-center">
+      <label>RANGE</label>
+      <input name="attr_RNG" type="number" value="">
+      <input name="attr_RNG_bonus" type="number" value="">
+    </div>
+
+    <div class="stat-block flex-center">
+      <label>MAGIC</label>
+      <input name="attr_MAG" type="number" value="">
+      <input name="attr_MAG_bonus" type="number" value="">
+    </div>
+
+    <div class="stat-block flex-center">
+      <label>ARMOR</label>
+      <input name="attr_AMR" type="number" value="">
+      <input name="attr_AMR_bonus" type="number" value="">
+    </div>
+    
+    <div class="stat-block flex-center">
+      <label>PROTECTION</label>
+      <input name="attr_PRT"     type="number" value="">
+      <input name="attr_PRT_bonus" type="number" value="">
+    </div>
+
+    <div class="stat-block flex-center">
+      <label>RESISTENCE</label>
+      <input name="attr_RES"       type="number" value="">
+      <input name="attr_RES_bonus" type="number" value="">
+    </div>
+
+    <div class="stat-block flex-center">
+      <label>LUCK</label>
+      <input name="attr_LCK"     type="number" value="">
+      <input name="attr_LCK_bonus" type="number" value="">
+    </div>
+    
+    <div class="stat-block flex-center">
+      <label>SPEED</label>
+      <input name="attr_SPD"     type="number" value="">
+      <input name="attr_SPD_bonus" type="number" value="">
+    </div>
+     <div class="stat-block flex-center">
+      <label>SURGE</label>
+      <input name="attr_SURGE"     type="number" value="1">
+      <span name="attr_SURGE_max" type="number" value="1"></span>
+    </div>
+  </div>
+  
+
+<!-- BIO SECTION -->
+  <div class="bio section flex-center flex-middle flex-down">
+    <label>Bio</label>
+    <textarea name="attr_bio" placeholder="Bio"></textarea>
+  </div>
+
+<!-- GOLD SECTION-->
+  <div class="gold section flex-center">
+    <label>Gold:</label>
+    <input name="attr_gold" type="number" value="10">
+  </div>
+
+<!-- LOAD SECTION -->
+  <div class="load section flex-center flex-middle flex-down">
+    <label>Load</label>
+    <span>
+      <input name="attr_attack_name1" type="text" placeholder="Attack/Weapon Name"> 
+      <button name="roll_attack" type="roll" value="#@{attack_name1}" class ="small"></button>
+      
+      <input name="attr_attack_name2" type="text" placeholder="Attack/Weapon Name"> 
+      <button name="roll_attack" type="roll" value="#@{attack_name2}" class ="small"></button>
+      
+      <input name="attr_attack_name3" type="text" placeholder="Attack/Weapon Name"> 
+      <button name="roll_attack" type="roll" value="#@{attack_name3}" class ="small"></button>
+    </span>
+  </div>
+
+<!-- SKILLED WITH SECTION -->
+  <div class="skilled section flex-center">
+    <label>Skilled with: </label>
+    <input name="attr_skilled_with" type="text">
+  </div>
+
+<!-- ORDER SKILL SECTION -->
+  <div class="order-skills section flex-center flex-down">
+    <label>Order Skills</label>
+    <textarea name="attr_order_skills" placeholder="Order Skills"></textarea>
+  </div>
+
+</div>
+
+<input name="attr_strength_bonus" type="hidden" value="0">
+<input name="attr_intelligence_bonus" type="hidden" value="0">
+<input name="attr_charm_bonus" type="hidden" value="0">
+<input name="attr_arcana_bonus" type="hidden" value="0">
+<input name="attr_grace_bonus" type="hidden" value="0">
+
+
+
+
+<!-- ---------------------------SHEET WORKERS----------------- -->
+
+
+<!-- Class & Race Stats -->
+<script type="text/worker">
+
+    on("change:class", function() {  
+         getAttrs(["class","HP","HP_max","STR","RNG","MAG","AMR","RES","LCK","SPD"], function(values) {
+         let classNum = parseInt(values.class)||0;
+         let health = parseInt(values.HP)||0;
+         let maxHealth = parseInt(values.HP_max)||0;
+         let strength = parseInt(values.STR)||0;
+         let range = parseInt(values.RNG)||0;
+         let magic = parseInt(values.MAG)||0;
+         let armor = parseInt(values.AMR)||0;
+         let res = parseInt(values.RES)||0;
+         let luck = parseInt(values.LCK)||0;
+         let speed = parseInt(values.SPD)||0;
+         
+         // KNIGHT
+         if (classNum == 1){ 
+            health = "7";
+            maxHealth = "7";
+            strength = "12";
+            range = "1";
+            magic = "0"; 
+            armor = "10";
+            res = "2";
+            luck = "2";
+            speed = "3";
+         }
+         //WIZARD
+         else if (classNum == 2){ 
+            health = "5";
+            maxHealth = "5";
+            strength = "2";
+            range = "2";
+            magic = "10"; 
+            armor = "2";
+            res = "5";
+            luck = "3";
+            speed = "5";
+         }
+         //BERSERKER
+         else if (classNum == 3){ 
+            health = "9";
+            maxHealth = "9";
+            strength = "15";
+            range = "0";
+            magic = "0"; 
+            armor = "4";
+            res = "1";
+            luck = "2";
+            speed = "5";
+         }
+         //WARRIOR
+         else if (classNum == 4){ 
+            health = "6";
+            maxHealth = "6";
+            strength = "10";
+            range = "1";
+            magic = "2"; 
+            armor = "8";
+            res = "2";
+            luck = "2";
+            speed = "4";
+         }
+         //ARCHER
+         else if (classNum == 5){ 
+            health = "5";
+            maxHealth = "5";
+            strength = "4";
+            range = "3";
+            magic = "0"; 
+            armor = "4";
+            res = "1";
+            luck = "3";
+            speed = "6";
+         }
+         //HUNTSMAN
+         else if (classNum == 6){ 
+            health = "7";
+            maxHealth = "7";
+            strength = "6";
+            range = "2";
+            magic = "0"; 
+            armor = "5";
+            res = "1";
+            luck = "3";
+            speed = "6";
+         }
+         //ROGUE
+         else if (classNum == 7){ 
+            health = "4";
+            maxHealth = "4";
+            strength = "5";
+            range = "2";
+            magic = "3"; 
+            armor = "3";
+            res = "3";
+            luck = "4";
+            speed = "8";
+         }
+         
+         
+        setAttrs({                            
+             "HP":health,"HP_max":maxHealth,"STR": strength, "RNG":range, "MAG": magic, "AMR": armor, "RES": res, "LCK": luck, "SPD": speed
+    });
+  });
+});
+
+//RACE
+ on("change:race", function() {  
+         getAttrs(["race","HP","HP_max","STR","RNG","MAG","AMR","RES","LCK","SPD"], function(values) {
+         let raceNum = parseInt(values.race)||0;
+         let health = parseInt(values.HP)||0;
+         let maxHealth = parseInt(values.HP_max)||0;
+         let strength = parseInt(values.STR)||0;
+         let range = parseInt(values.RNG)||0;
+         let magic = parseInt(values.MAG)||0;
+         let armor = parseInt(values.AMR)||0;
+         let res = parseInt(values.RES)||0;
+         let luck = parseInt(values.LCK)||0;
+         let speed = parseInt(values.SPD)||0;
+         
+         if (raceNum == 2){ 
+            range += 1;
+            armor -= 1;
+            res += 1;
+         }
+         else if (raceNum == 3){ 
+            health += 1;
+            maxHealth += 1;
+            armor += 1;
+         }
+         else if (raceNum == 4){ 
+            speed += 2;
+            magic += 1;
+            res += 1;
+            strength -= 1;
+            armor -= 1;
+         }
+         else if (raceNum == 5){ 
+            strength += 1;
+            armor += 1;
+            range -= 1;
+         }
+         else if (raceNum == 6){ 
+            speed -= 2;
+            res -= 1;
+            strength += 2;
+         }
+         else if (raceNum == 7){ 
+            speed += 1;
+            magic += 2;
+            res += 1;
+            health -= 1;
+            maxHealth -=1;
+            armor -= 1;
+         }
+         else if (raceNum == 8){ 
+            speed += 1;
+            magic += 1;
+            res -= 1;
+            strength += 1;
+            armor -= 1;
+         }
+         
+         setAttrs({                            
+             "HP":health,"HP_max":maxHealth,"STR": strength, "RNG":range, "MAG": magic, "AMR": armor, "RES": res, "LCK": luck, "SPD": speed
+    });
+  });
+});
+
+
+    
+</script>
+<!-- Roll Template --> 
+
+<rolltemplate class="sheet-rolltemplate-test">
+    <div class="sheet-template-container">
+	<div class="sheet-template-header">{{rollname}}</div>
+	{{#attack}}<div class="sheet-template-row">Attack: {{attack}} {{attackadvantage}}</div>{{/attack}}
+        {{#damage}}
+	<div class="sheet-template-row"><span>Damage: </span>{{damage}}</div> 
+	<div class="sheet-template-row"><span>Dealt: </span>
+	    {{#rollTotal() attack 2}}
+	        {{dmgtype1}}
+	    {{/rollTotal() attack 2}}
+	    
+	    {{#rollBetween() attack 3 4}}
+	        {{dmgtype2}}
+	    {{/rollBetween() attack 3 4}}
+	    
+	    {{#rollBetween() attack 5 9}}
+	        {{dmgtype3}}
+	    {{/rollBetween() attack 5 9}}
+	    
+	    {{#rollBetween() attack 10 11}}
+	        {{dmgtype4}}
+	    {{/rollBetween() attack 10 11}}
+	    
+	    {{#rollTotal() attack 12}}
+	        {{dmgtype5}}
+	    {{/rollTotal() attack 12}}</div>
+       {{/damage}}
+       {{#atteffect}}
+	 <div class="sheet-template-row">
+	 <span class="sheet-template-desc">Effect: </span>{{atteffect}}
+         </div>
+       {{/atteffect}}
+</rolltemplate>
